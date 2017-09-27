@@ -1,0 +1,29 @@
+<app-flash></app-flash>
+<h2>Current Polls</h2>
+<div class="form-inline float-right" style="margin-bottom:5px">
+  <label for="inlineFormInput">Search:&nbsp;</label>
+
+  <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" [(ngModel)]="searchTerm">
+
+</div>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Survey Question</th>
+      <th>Date Posted</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let poll of polls$ | async | pollsFilter: searchTerm ">
+      <td scope="row">{{poll.user}}</td>
+      <td><a [routerLink]="[poll._id]">{{poll.questionText}}</a></td>
+      <td>{{poll.createdAt | date}}</td>
+      <td><button *ngIf="poll.user===userService.userName" type="button" class="btn btn-danger" (click)="onDelete(poll)">DELETE</button></td>
+    </tr>
+
+  </tbody>
+</table>

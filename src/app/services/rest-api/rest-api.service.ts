@@ -149,7 +149,7 @@ export class RestApiService<T> {
     responseType?: 'json';
     withCredentials?: boolean;
   } = this.config.options): Observable<T> {
-    return this.http.put<T>(`${this.config.baseUrl}/${this.resource}/ ${id} `, obj, options);
+    return this.http.put<T>(`${this.config.baseUrl}/${this.resource}/${id} `, obj, options);
   }
 
   /**

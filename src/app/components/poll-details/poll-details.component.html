@@ -1,0 +1,18 @@
+<h3>{{poll.questionText}}</h3>
+<p>Click the Vote button to choose one</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Option</th>
+      <th>Current Count of Votes</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let option of poll.options">
+      <td scope="row">{{option.optionText}}</td>
+      <td>{{option.votes}}</td>
+      <td><button type="button" class="btn btn-primary" (click)="onVote(option)">Vote</button></td>
+    </tr>
+  </tbody>
+</table>

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { QuestionCreateComponent } from './question-create.component';
+import { PollCreateComponent } from './poll-create.component';
 
-describe('QuestionCreateComponent', () => {
-  let component: QuestionCreateComponent;
-  let fixture: ComponentFixture<QuestionCreateComponent>;
+describe('PollCreateComponent', () => {
+  let component: PollCreateComponent;
+  let fixture: ComponentFixture<PollCreateComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ QuestionCreateComponent ]
+      declarations: [ PollCreateComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(QuestionCreateComponent);
+    fixture = TestBed.createComponent(PollCreateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

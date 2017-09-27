@@ -1,8 +1,9 @@
+import { LoginComponent } from './components/login/login.component';
+import { PollListComponent } from './components/poll-list/poll-list.component';
+
+import { PollDetailsComponent } from './components/poll-details/poll-details.component';
+import { PollCreateComponent } from './components/poll-create/poll-create.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
-import { QuizComponent } from './components/quiz/quiz.component';
-import { ResultListComponent } from './components/result-list/result-list.component';
-import { QuestionCreateComponent } from './components/question-create/question-create.component';
-import { HomePageComponent } from './components/home-page/home-page.component';
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -12,16 +13,25 @@ const routes: Routes = [
     component: NavigationComponent,
     children: [{
       path: '',
-      component: ResultListComponent,
+      redirectTo: 'polls',
+      pathMatch: 'full'
     },
     {
-      path: 'questions/new',
-      component: QuestionCreateComponent
+      path: 'polls',
+      component: PollListComponent
+    },
+    {
+      path: 'polls/new',
+      component: PollCreateComponent
+    },
+    {
+      path: 'polls/:id',
+      component: PollDetailsComponent
     }]
   },
   {
-    path: 'quiz',
-    component: QuizComponent
+    path: 'login',
+    component: LoginComponent
   }
 ];
 

@@ -29,7 +29,7 @@ export class NavigationComponent implements OnInit {
   doLogout() {
     console.log('logging out');
     this.userService.logOut();
-    this.router.navigate(['']);
+    this.router.navigate(['/login']);
   }
 
 }

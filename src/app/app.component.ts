@@ -14,17 +14,9 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     if (!this.userService.loggedIn) {
-      let userName = '';
-      while (!userName || !userName.trim()) {
-        userName = window.prompt('Please enter your name');
-      }
-
-      this.userService.logIn(userName.trim());
-
+      this.router.navigate(['login']);
     }
-    console.log(this.userService);
   }
-
   doLogout() {
     console.log('logging out');
     this.userService.logOut();

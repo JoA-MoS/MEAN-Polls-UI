@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ResultListComponent } from './result-list.component';
+import { PollListComponent } from './poll-list.component';
 
-describe('ResultListComponent', () => {
-  let component: ResultListComponent;
-  let fixture: ComponentFixture<ResultListComponent>;
+describe('PollListComponent', () => {
+  let component: PollListComponent;
+  let fixture: ComponentFixture<PollListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ResultListComponent ]
+      declarations: [ PollListComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ResultListComponent);
+    fixture = TestBed.createComponent(PollListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

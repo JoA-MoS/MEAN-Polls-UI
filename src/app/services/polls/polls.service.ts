@@ -1,4 +1,4 @@
-import { Question } from './../../models/question';
+import { Poll } from './../../models/Poll';
 
 import { Injectable } from '@angular/core';
 /**
@@ -17,21 +17,21 @@ import { RestApiService } from '../rest-api/rest-api.service';
 
 
 /**
- * An abstract Class for connecting with basic RESQuestionful APIs using Behbior Subjects
+ * An abstract Class for connecting with basic RESPollful APIs using Behbior Subjects
  *
  * Currently this will only work with API's that return an array of objects.
  *
  * @export
  * @abstract
  * @class AbstractRestApiService
- * @template Question
+ * @template Poll
  */
 @Injectable()
-export class QuestionsService extends RestApiService<Question> {
-  data$: Observable<Question[]>;
-  private dataBS: BehaviorSubject<Question[]>;
+export class PollsService extends RestApiService<Poll> {
+  data$: Observable<Poll[]>;
+  private dataBS: BehaviorSubject<Poll[]>;
   private dataStore: {
-    data: Question[]
+    data: Poll[]
   };
 
 
@@ -42,9 +42,9 @@ export class QuestionsService extends RestApiService<Question> {
    * @memberof AbstractRestApiService
    */
   constructor(protected http: HttpClient, protected config: RestApiServiceConfig) {
-    super('questions', http, config);
+    super('polls', http, config);
     this.dataStore = { data: [] };
-    this.dataBS = <BehaviorSubject<Question[]>>new BehaviorSubject([]);
+    this.dataBS = <BehaviorSubject<Poll[]>>new BehaviorSubject([]);
     this.data$ = this.dataBS.asObservable();
   }
 
@@ -86,7 +86,7 @@ export class QuestionsService extends RestApiService<Question> {
       error => console.log(error));
   }
 
-  create(obj: Question, cb: Function = null, options = this.config.options) {
+  create(obj: Poll, cb: Function = null, options = this.config.options) {
     this.create$(obj, options).subscribe(data => {
       this.dataStore.data.push(data);
       this.dataBS.next(Object.assign({}, this.dataStore).data);
@@ -95,7 +95,7 @@ export class QuestionsService extends RestApiService<Question> {
   }
 
 
-  update(id, obj: Question, options = this.config.options) {
+  update(id, obj: Poll, options = this.config.options) {
     this.update$(id, obj, options).subscribe(data => {
       // if 204 no content we should just update the datastore from the obj
       const idx = this.dataStore.data.findIndex((elem) => {

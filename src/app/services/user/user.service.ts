@@ -3,10 +3,10 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class UserService {
   private _loggedIn: boolean;
-  private _userFirstName: string;
+  private _userName: string;
   constructor() {
     this._loggedIn = false;
-    this._userFirstName = '';
+    this._userName = '';
   }
 
   get loggedIn(): boolean {
@@ -14,22 +14,22 @@ export class UserService {
     return this._loggedIn;
   }
 
-  get userFirstName(): string {
-    return this._userFirstName || JSON.parse(localStorage.getItem('userFirstName'));
+  get userName(): string {
+    return this._userName || JSON.parse(localStorage.getItem('userFirstName'));
   }
 
   logIn(userFirstName: string) {
     this._loggedIn = true;
-    this._userFirstName = userFirstName;
+    this._userName = userFirstName;
     localStorage.setItem('loggedIn', JSON.stringify(this._loggedIn));
-    localStorage.setItem('userFirstName', JSON.stringify(this._userFirstName));
+    localStorage.setItem('userFirstName', JSON.stringify(this._userName));
 
   }
 
   logOut() {
     localStorage.clear();
     this._loggedIn = false;
-    this._userFirstName = '';
+    this._userName = '';
     // localStorage.setItem('loggedIn', JSON.stringify(this._loggedIn));
     // localStorage.setItem('userFirstName', JSON.stringify(this._userFirstName));
 
