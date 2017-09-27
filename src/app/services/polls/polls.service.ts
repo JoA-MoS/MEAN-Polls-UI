@@ -1,4 +1,4 @@
-import { Poll } from './../../models/Poll';
+import { Poll } from './../../models/poll';
 
 import { Injectable } from '@angular/core';
 /**
